@@ -1,0 +1,27 @@
+.questionRow {
+    height: 40vh;
+    text-align: center;
+    padding-top: 5vh;
+}
+
+.answerContainer {
+    margin-bottom: 3vh;
+}
+
+.correct {
+    background: green;
+    pointer-events: none;
+}
+
+.wrong {
+    background: red;
+    pointer-events: none;
+}
+
+.other {
+    pointer-events: none;
+}
+
+.hiddenButton {
+    visibility: hidden;
+}

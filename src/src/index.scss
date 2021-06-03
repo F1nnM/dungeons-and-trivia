@@ -1,0 +1,26 @@
+@font-face {
+    font-family: 'Dungeon';
+    src: local('Dungeon'), url(./fonts/dungeon.ttf) format('truetype');
+    /* other formats include: 'woff2', 'truetype, 'opentype',
+                              'embedded-opentype', and 'svg' */
+}
+
+body {
+    font-size: 3vh;
+    font-weight: 400;
+}
+
+.button {
+    border: 5px solid darkred;
+    cursor: pointer;
+    background-color: transparent;
+    text-align: center;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    &:hover {
+        background-color: #00000033;
+    }
+    &.active {
+        background-color: #00000066;
+    }
+}
