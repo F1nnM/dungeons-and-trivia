@@ -40,7 +40,7 @@ export default function Game({ gameMode, returnToHome }) {
   return (
     <MDBContainer>
       <MDBRow>
-        <MDBCol size="2">
+        <MDBCol size="5" sm="4" md="2">
           <div onClick={returnToHome} className="button">Back</div>
         </MDBCol>
       </MDBRow>
