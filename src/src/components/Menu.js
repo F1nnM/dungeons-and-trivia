@@ -7,7 +7,7 @@ export default function Menu({ setGameMode, gameModes }) {
     <MDBContainer>
       <MDBRow>
         {gameModes.map(mode => (
-          <MDBCol xs={12} lg={6} className={`${styles.optionContainer} text-center`}>
+          <MDBCol xs="12" lg="6" className={`${styles.optionContainer} text-center`} key={mode}>
             <div className="button" onClick={() => setGameMode(mode)}>
               {mode}
             </div>

@@ -1,6 +1,6 @@
 .gameTitle {
     font-family: Dungeon;
-    font-size: 10vh;
+    font-size: calc(max(min(11vw,150px),55px));
 }
 
 .mainContainer {
