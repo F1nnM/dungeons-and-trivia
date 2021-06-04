@@ -32,6 +32,19 @@ charbooks.forEach(charbook => charbook.races.forEach(race => {
     });
 }));
 
+
+var classQuestions = [];
+
+const hitDice = ["d4","d6","d8","d10","d12"];
+charbooks.forEach( charbook => charbook.classes.forEach(playerClass => {
+    classQuestions.push({
+        q: `What is the hit die of the class "${playerClass.name} (${charbook.acronym})"?`,
+        a: hitDice,
+        correctA: hitDice.indexOf(playerClass.hd)
+    });
+}));
+
+
 var monsterQuestions = [];
 let monsterTypes = ["monstrosity","aberration","construct","humanoid","fiend","undead","beast","celestial","dragon","fey","plant","elemental","giant","ooze"]
 monsterbooks.forEach( monsterbook => monsterbook.monster.forEach(monster => {
@@ -49,8 +62,9 @@ var questions = {};
 questions["Spells"] = spellQuestions;
 questions["Player Races"] = playerRaceQuestions;
 questions["Monsters"] = monsterQuestions;
+questions["Classes"] = classQuestions;
 
-questions["Random"] = [...spellQuestions, ...playerRaceQuestions, ...monsterQuestions]
+questions["Random"] = [...spellQuestions, ...playerRaceQuestions, ...monsterQuestions, ...classQuestions]
 
 export default function questionProvider(category) {
     let qs = questions[category];
