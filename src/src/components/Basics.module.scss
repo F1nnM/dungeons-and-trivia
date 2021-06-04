@@ -7,6 +7,8 @@
     position: relative;
     width: 100vw;
     height: 100vh;
+    background-color: #e4a981;
+    z-index: -2;
     &::before {
         content: "";
         position: absolute;
