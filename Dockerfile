@@ -12,6 +12,9 @@ RUN apk add --update python make g++\
 # install app dependencies
 COPY frontend/package.json ./
 COPY frontend/package-lock.json ./
+
+COPY ./data/ ./
+
 RUN npm install ./data/
 RUN npm install
 RUN npm install react-scripts@3.4.1 -g
