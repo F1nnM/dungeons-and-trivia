@@ -24,6 +24,8 @@ COPY ./frontend/ ./frontend
 
 ENV REACT_APP_BACKEND "wss://dnt.mfinn.de"
 
+WORKDIR /app/frontend
+
 RUN npm run-script build
 
 
