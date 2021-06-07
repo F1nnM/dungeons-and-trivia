@@ -35,6 +35,9 @@ WORKDIR /app
 
 COPY backend/ .
 
+COPY ./data/ ../dataProvider
+
+RUN npm install ../data
 RUN npm install
 
 COPY --from=build_frontend /app/frontend/build ./built_frontend
