@@ -37,7 +37,7 @@ COPY backend/ .
 
 COPY ./data/ ../dataProvider
 
-RUN npm install ../data
+RUN npm install ../dataProvider
 RUN npm install
 
 COPY --from=build_frontend /app/frontend/build ./built_frontend
