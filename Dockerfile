@@ -1,10 +1,13 @@
-FROM node:13.12.0 as build_frontend
+FROM node:13.12.0-alpine as build_frontend
 
 # set working directory
 WORKDIR /app
 
 # add `/app/node_modules/.bin` to $PATH
 ENV PATH /app/node_modules/.bin:$PATH
+
+RUN apk add --update python make g++\
+   && rm -rf /var/cache/apk/*
 
 # install app dependencies
 COPY frontend/package.json ./
