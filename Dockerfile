@@ -1,4 +1,4 @@
-FROM node:13.12.0-alpine as build_frontend
+FROM node:13.12.0 as build_frontend
 
 # set working directory
 WORKDIR /app
