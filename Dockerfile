@@ -37,7 +37,7 @@ COPY backend/ .
 
 RUN npm install
 
-COPY --from=build_frontend /app/build ./built_frontend
+COPY --from=build_frontend /app/frontend/build ./built_frontend
 
 EXPOSE 5000
 
