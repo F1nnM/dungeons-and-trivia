@@ -34,4 +34,6 @@ const basicAuthMiddleware = basicAuth({
 });
 app.use("/colyseus", basicAuthMiddleware, monitor());
 
+app.use("/", express.static("built_frontend"))
+
 gameServer.listen(port);
