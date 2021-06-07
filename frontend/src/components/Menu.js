@@ -2,14 +2,14 @@
 import { MDBCol, MDBContainer, MDBRow } from "mdbreact"
 import styles from "./Menu.module.scss"
 
-export default function Menu({ setGameMode, gameModes }) {
+export default function Menu({ onSelect, options }) {
   return (
     <MDBContainer>
       <MDBRow>
-        {gameModes.map(mode => (
-          <MDBCol xs="12" lg="6" className={`${styles.optionContainer} text-center`} key={mode}>
-            <div className="button" onClick={() => setGameMode(mode)}>
-              {mode}
+        {options.map((option, index) => (
+          <MDBCol xs="12" lg="6" className={`${styles.optionContainer} text-center`} key={option}>
+            <div className="button" onClick={() => onSelect(index)}>
+              {option}
             </div>
           </MDBCol>
         ))}

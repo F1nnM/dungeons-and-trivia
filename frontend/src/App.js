@@ -2,31 +2,36 @@ import './App.scss';
 import { useState } from 'react';
 import Basics from './components/Basics';
 import Menu from './components/Menu';
-import Game from './components/Game';
-
+import SinglePlayer from './components/SinglePlayer';
+import MultiPlayer from './components/MultiPlayer';
 
 const gameModes = [
-  "Spells",
-  "Monsters",
-  "Classes",
-  "Player Races",
-  "Random"
+  "Single player (offline)",
+  "Multiplayer (online)"
 ]
 
 function App() {
 
-  const [gameMode, setGameMode] = useState(null);
+  const homeState = { step: "main", questionType: null }
 
-  if (gameMode)
-    return (
-      <Basics>
-        <Game gameMode={gameMode} returnToHome={() => setGameMode(null)}/>
-      </Basics>
-    )
+  const [state, setState] = useState(homeState);
+
+  let content = <>How did you end up here? This page doesn't exist. Please reload.</>;
+  let backButton = () => setState(homeState);
+
+  if (state.step === "main") {
+    content = <Menu onSelect={(index) => setState({ ...state, step: gameModes[index] })} options={gameModes} />
+    backButton = null;
+  } else
+    if (state.step === gameModes[0])
+      content = <SinglePlayer category={state.questionType} />
+    else if (state.step === gameModes[1])
+      content = <MultiPlayer category={state.questionType} />
+
 
   return (
-    <Basics>
-      <Menu setGameMode={(mode) => setGameMode(mode)} gameModes={gameModes}/>
+    <Basics backButton={backButton}>
+      {content}
     </Basics>
   );
 }

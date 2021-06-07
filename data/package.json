@@ -1,0 +1,6 @@
+{
+  "name": "@dnt/question-provider",
+  "version": "1.0.0",
+  "description": "",
+  "main": "questionProvider.js"
+}

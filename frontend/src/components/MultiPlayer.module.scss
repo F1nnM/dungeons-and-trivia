@@ -1,0 +1,23 @@
+.textbox {
+    border-bottom-color: darkred !important;
+    & + label {
+        color: inherit;
+    }
+
+    &:focus {
+        box-shadow: 0 1px 0 0 darkred !important;
+        border-bottom: 1px solid darkred;
+        color: #212529 !important;
+        & + label {
+            color: darkred !important;
+        }
+    }
+    
+}
+
+.scoreboard {
+    display: block;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}

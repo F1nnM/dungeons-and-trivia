@@ -1,15 +1,16 @@
 .gameTitle {
     font-family: Dungeon;
-    font-size: calc(max(min(11vw,150px),55px));
+    font-size: calc(max(min(11vw,150px),45px));
 }
 
 .mainContainer {
     position: relative;
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
+    padding-bottom: 10vh;
     &::before {
         content: "";
-        position: absolute;
+        position: fixed;
         top: 0;
         left: 0;
         width: 100%;

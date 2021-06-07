@@ -1,7 +1,7 @@
 .questionRow {
-    height: 30vh;
     text-align: center;
-    padding-top: 5vh;
+    padding-top: 3vh;
+    padding-bottom: 3vh;
 }
 
 .answerContainer {
@@ -9,14 +9,20 @@
 }
 
 .correct {
-    background: green;
+    background: #21a721;
     pointer-events: none;
 }
 
 .wrong {
-    background: red;
+    background: #bb1e03;
     pointer-events: none;
 }
+
+.pending {
+    background: orange;
+    pointer-events: none;
+}
+
 
 .other {
     pointer-events: none;
