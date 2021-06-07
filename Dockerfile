@@ -13,14 +13,14 @@ RUN apk add --update python make g++\
 COPY frontend/package.json ./
 COPY frontend/package-lock.json ./
 
-COPY ./data/ ./
+COPY ./data/ ../dataProvider
 
-RUN npm install ./data/
+RUN npm install ../dataProvider/
 RUN npm install
 RUN npm install react-scripts@3.4.1 -g
 
 # add app
-COPY ./frontend/ ./
+COPY ./frontend/ ./frontend
 
 ENV REACT_APP_BACKEND "wss://dnt.mfinn.de"
 
