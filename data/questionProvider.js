@@ -5,7 +5,7 @@ import monsterbooks from "./bestiary-complete.json"
 var spellQuestions = [];
 
 const schools = ["illusion", "enchantment", "evocation", "divination", "transmutation", "conjuration", "necromancy", "abjuration"];
-const levels = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const levels = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
 const classes = ["Bard", "Sorcerer", "Wizard", "Warlock", "Cleric", "Artificer", "Paladin", "Artificer (Revisited)", "Ranger", "Druid"];
 spellbooks.forEach(spellbook => spellbook.spells.forEach(spell => {
   
@@ -85,8 +85,6 @@ charbooks.forEach(charbook => charbook.classes.forEach(playerClass => {
     a: possibleAnswers.concat([correctAnswers[1]]),
     correctA: possibleAnswers.length
   });
-
-  console.log(playerClass.startingProficiencies.split("\n")[0])
 
   let weaponProfs = playerClass.startingProficiencies.split("\n")[1];
   classQuestions.push({
