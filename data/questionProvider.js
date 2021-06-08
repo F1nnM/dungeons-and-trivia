@@ -8,7 +8,7 @@ const schools = ["illusion", "enchantment", "evocation", "divination", "transmut
 const levels = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
 const classes = ["Bard", "Sorcerer", "Wizard", "Warlock", "Cleric", "Artificer", "Paladin", "Artificer (Revisited)", "Ranger", "Druid"];
 spellbooks.forEach(spellbook => spellbook.spells.forEach(spell => {
-  
+
   spellQuestions.push({
     q: `Do you need to maintain concentration on the spell "${spell.name} (${spellbook.acronym})"?`,
     a: ["Yes", "No"],
@@ -27,7 +27,7 @@ spellbooks.forEach(spellbook => spellbook.spells.forEach(spell => {
   spellQuestions.push({
     q: `Which minimum spell level has the spell "${spell.name} (${spellbook.acronym})" to be cast at?`,
     a: levels,
-    correctA: spell.level-1
+    correctA: spell.level - 1
   });
 
   if (spell.classes)
@@ -129,16 +129,21 @@ questions["Player Races"] = playerRaceQuestions;
 questions["Monsters"] = monsterQuestions;
 questions["Classes"] = classQuestions;
 
+const categories = Object.keys(questions);
+
 questions["Random"] = [...spellQuestions, ...playerRaceQuestions, ...monsterQuestions, ...classQuestions]
 
 export function questionProvider(category) {
+
+  if (category = "Random")
+    category = categories[Math.floor(Math.random() * categories.length)];
+
   let qs = questions[category];
   if (!qs)
     return {
       q: "Not implemented, sorry. Come back soon!",
       a: []
     }
-
 
   let q = qs[Math.floor(Math.random() * qs.length)];
   if (q.a.length > 4) {
