@@ -36,7 +36,7 @@ export default function MultiPlayer() {
   }
 
   function handleJoin() {
-    client.joinById(joinCode).then(room => {
+    client.joinById(joinCode, {name: name.name}).then(room => {
       setRoom(room);
       room.onStateChange((state) => setGameState({ ...state }));
     });
