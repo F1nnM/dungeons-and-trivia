@@ -5,7 +5,7 @@ import monsterbooks from "./bestiary-complete.json"
 var spellQuestions = [];
 
 const schools = ["illusion", "enchantment", "evocation", "divination", "transmutation", "conjuration", "necromancy", "abjuration"];
-const levels = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
+const levels = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 const classes = ["Bard", "Sorcerer", "Wizard", "Warlock", "Cleric", "Artificer", "Paladin", "Artificer (Revisited)", "Ranger", "Druid"];
 spellbooks.forEach(spellbook => spellbook.spells.forEach(spell => {
 
@@ -27,7 +27,7 @@ spellbooks.forEach(spellbook => spellbook.spells.forEach(spell => {
   spellQuestions.push({
     q: `Which minimum spell level has the spell "${spell.name} (${spellbook.acronym})" to be cast at?`,
     a: levels,
-    correctA: spell.level - 1
+    correctA: spell.level
   });
 
   if (spell.classes)
@@ -135,7 +135,7 @@ questions["Random"] = [...spellQuestions, ...playerRaceQuestions, ...monsterQues
 
 export function questionProvider(category) {
 
-  if (category = "Random")
+  if (category === "Random")
     category = categories[Math.floor(Math.random() * categories.length)];
 
   let qs = questions[category];
